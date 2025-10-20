@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Revumaukpai.com</title>
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-wrapper sea-blue">
+        <div class="container">
+            <a href="#" class="brand-logo">Revumaukpai Admin</a>
+            <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html" target="_blank"><i class="material-icons left">visibility</i>View Site</a></li>
+                <li><a href="#!" id="logout-btn"><i class="material-icons left">exit_to_app</i>Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="index.html" target="_blank"><i class="material-icons left">visibility</i>View Site</a></li>
+        <li><a href="#!" id="logout-btn-mobile"><i class="material-icons left">exit_to_app</i>Logout</a></li>
+    </ul>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col s12 m4 l3">
+                <div class="card-panel sidebar">
+                    <div class="collection">
+                        <a href="#dashboard" class="collection-item active tab-link" data-tab="dashboard">Dashboard</a>
+                        <a href="#upload-content" class="collection-item tab-link" data-tab="upload-content">Upload Content</a>
+                        <a href="#manage-content" class="collection-item tab-link" data-tab="manage-content">Manage Content</a>
+                        <a href="#announcements" class="collection-item tab-link" data-tab="announcements">Announcements</a>
+                        <a href="#analytics" class="collection-item tab-link" data-tab="analytics">Analytics</a>
+                        <a href="#users" class="collection-item tab-link" data-tab="users">User Management</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="col s12 m8 l9">
+                <!-- Dashboard Tab -->
+                <div id="dashboard" class="tab-content active">
+                    <h4>Dashboard Overview</h4>
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <div class="card-panel center-align sea-blue white-text">
+                                <i class="material-icons medium">music_note</i>
+                                <h5 id="total-songs">0</h5>
+                                <p>Total Songs</p>
+                            </div>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            <div class="card-panel center-align sea-blue lighten-1 white-text">
+                                <i class="material-icons medium">videocam</i>
+                                <h5 id="total-videos">0</h5>
+                                <p>Total Videos</p>
+                            </div>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            <div class="card-panel center-align sea-blue lighten-2 white-text">
+                                <i class="material-icons medium">people</i>
+                                <h5 id="total-downloads">0</h5>
+                                <p>Total Downloads</p>
+                            </div>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            <div class="card-panel center-align sea-blue darken-1 white-text">
+                                <i class="material-icons medium">trending_up</i>
+                                <h5 id="site-visits">0</h5>
+                                <p>Site Visits</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 m8">
+                            <div class="card-panel">
+                                <h5>Recent Activity</h5>
+                                <ul class="collection" id="recent-activity">
+                                    <!-- Recent activity will be populated by JS -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col s12 m4">
+                            <div class="card-panel">
+                                <h5>Quick Actions</h5>
+                                <div class="quick-actions">
+                                    <a class="btn sea-blue waves-effect waves-light" href="#upload-content" data-tab="upload-content">
+                                        <i class="material-icons left">add</i>Upload Content
+                                    </a>
+                                    <a class="btn sea-blue lighten-1 waves-effect waves-light" href="#announcements" data-tab="announcements">
+                                        <i class="material-icons left">announcement</i>Post Announcement
+                                    </a>
+                                    <a class="btn sea-blue lighten-2 waves-effect waves-light" href="#analytics" data-tab="analytics">
+                                        <i class="material-icons left">analytics</i>View Analytics
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upload Content Tab -->
+                <div id="upload-content" class="tab-content">
+                    <h4>Upload Content</h4>
+                    <div class="card-panel">
+                        <ul class="tabs">
+                            <li class="tab col s6"><a href="#upload-song" class="active">Upload Song</a></li>
+                            <li class="tab col s6"><a href="#upload-video">Upload Video</a></li>
+                        </ul>
+
+                        <!-- Upload Song Form -->
+                        <div id="upload-song" class="col s12">
+                            <form id="song-upload-form">
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <input id="song-title" type="text" required>
+                                        <label for="song-title">Song Title</label>
+                                    </div>
+                                    <div class="input-field col s12 m6">
+                                        <input id="song-artist" type="text" required>
+                                        <label for="song-artist">Artist</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <input id="song-duration" type="text" required>
+                                        <label for="song-duration">Duration (e.g., 3:45)</label>
+                                    </div>
+                                    <div class="input-field col s12 m6">
+                                        <input id="song-size" type="text" required>
+                                        <label for="song-size">File Size (e.g., 4.2 MB)</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="song-description" class="materialize-textarea"></textarea>
+                                        <label for="song-description">Description (Optional)</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="file-field input-field col s12 m6">
+                                        <div class="btn sea-blue">
+                                            <span>Cover Image</span>
+                                            <input type="file" id="song-image" accept="image/*">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="file-field input-field col s12 m6">
+                                        <div class="btn sea-blue">
+                                            <span>MP3 File</span>
+                                            <input type="file" id="song-file" accept="audio/*" required>
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button type="submit" class="btn sea-blue waves-effect waves-light">
+                                            <i class="material-icons left">cloud_upload</i>Upload Song
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Upload Video Form -->
+                        <div id="upload-video" class="col s12">
+                            <form id="video-upload-form">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="video-title" type="text" required>
+                                        <label for="video-title">Video Title</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <input id="video-duration" type="text" required>
+                                        <label for="video-duration">Duration (e.g., 4:15)</label>
+                                    </div>
+                                    <div class="input-field col s12 m6">
+                                        <input id="video-size" type="text" required>
+                                        <label for="video-size">File Size (e.g., 15.2 MB)</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="video-description" class="materialize-textarea"></textarea>
+                                        <label for="video-description">Description (Optional)</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="file-field input-field col s12 m6">
+                                        <div class="btn sea-blue">
+                                            <span>Thumbnail</span>
+                                            <input type="file" id="video-thumbnail" accept="image/*">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="file-field input-field col s12 m6">
+                                        <div class="btn sea-blue">
+                                            <span>Video File</span>
+                                            <input type="file" id="video-file" accept="video/*" required>
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button type="submit" class="btn sea-blue waves-effect waves-light">
+                                            <i class="material-icons left">cloud_upload</i>Upload Video
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manage Content Tab -->
+                <div id="manage-content" class="tab-content">
+                    <h4>Manage Content</h4>
+                    <div class="card-panel">
+                        <ul class="tabs">
+                            <li class="tab col s6"><a href="#manage-songs" class="active">Manage Songs</a></li>
+                            <li class="tab col s6"><a href="#manage-videos">Manage Videos</a></li>
+                        </ul>
+
+                        <!-- Manage Songs -->
+                        <div id="manage-songs" class="col s12">
+                            <div class="row">
+                                <div class="col s12">
+                                    <input type="text" id="search-songs" placeholder="Search songs...">
+                                </div>
+                            </div>
+                            <table class="striped highlight">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Artist</th>
+                                        <th>Duration</th>
+                                        <th>Downloads</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="songs-table">
+                                    <!-- Songs will be populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Manage Videos -->
+                        <div id="manage-videos" class="col s12">
+                            <div class="row">
+                                <div class="col s12">
+                                    <input type="text" id="search-videos" placeholder="Search videos...">
+                                </div>
+                            </div>
+                            <table class="striped highlight">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Duration</th>
+                                        <th>Size</th>
+                                        <th>Downloads</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="videos-table">
+                                    <!-- Videos will be populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Announcements Tab -->
+                <div id="announcements" class="tab-content">
+                    <h4>Manage Announcements</h4>
+                    <div class="row">
+                        <div class="col s12 m8">
+                            <div class="card-panel">
+                                <h5>Create New Announcement</h5>
+                                <form id="announcement-form">
+                                    <div class="input-field">
+                                        <input id="announcement-title" type="text" required>
+                                        <label for="announcement-title">Announcement Title</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <textarea id="announcement-content" class="materialize-textarea" required></textarea>
+                                        <label for="announcement-content">Announcement Content</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <select id="announcement-type">
+                                            <option value="info" selected>Information</option>
+                                            <option value="warning">Warning</option>
+                                            <option value="success">Success</option>
+                                            <option value="maintenance">Maintenance</option>
+                                        </select>
+                                        <label>Announcement Type</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <input type="date" id="announcement-expiry">
+                                        <label for="announcement-expiry">Expiry Date (Optional)</label>
+                                    </div>
+                                    <button type="submit" class="btn sea-blue waves-effect waves-light">
+                                        <i class="material-icons left">announcement</i>Post Announcement
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col s12 m4">
+                            <div class="card-panel">
+                                <h5>Active Announcements</h5>
+                                <div id="active-announcements">
+                                    <!-- Active announcements will be populated by JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Tab -->
+                <div id="analytics" class="tab-content">
+                    <h4>Site Analytics</h4>
+                    <div class="row">
+                        <div class="col s12 m8">
+                            <div class="card-panel">
+                                <h5>Traffic Overview</h5>
+                                <canvas id="traffic-chart" height="250"></canvas>
+                            </div>
+                        </div>
+                        <div class="col s12 m4">
+                            <div class="card-panel">
+                                <h5>Download Statistics</h5>
+                                <canvas id="downloads-chart" height="250"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6">
+                            <div class="card-panel">
+                                <h5>Top Downloads</h5>
+                                <ul class="collection" id="top-downloads">
+                                    <!-- Top downloads will be populated by JS -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <div class="card-panel">
+                                <h5>User Statistics</h5>
+                                <div class="user-stats">
+                                    <p><strong>Total Visitors:</strong> <span id="total-visitors">0</span></p>
+                                    <p><strong>Unique Visitors:</strong> <span id="unique-visitors">0</span></p>
+                                    <p><strong>Average Session:</strong> <span id="avg-session">0m</span></p>
+                                    <p><strong>Bounce Rate:</strong> <span id="bounce-rate">0%</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Management Tab -->
+                <div id="users" class="tab-content">
+                    <h4>User Management</h4>
+                    <div class="card-panel">
+                        <div class="row">
+                            <div class="col s12">
+                                <input type="text" id="search-users" placeholder="Search users...">
+                            </div>
+                        </div>
+                        <table class="striped highlight">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Downloads</th>
+                                    <th>Last Active</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-table">
+                                <!-- Users will be populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Edit Content Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <h4>Edit Content</h4>
+            <form id="edit-form">
+                <input type="hidden" id="edit-id">
+                <input type="hidden" id="edit-type">
+                <div class="input-field">
+                    <input id="edit-title" type="text" required>
+                    <label for="edit-title">Title</label>
+                </div>
+                <div class="input-field" id="edit-artist-field">
+                    <input id="edit-artist" type="text">
+                    <label for="edit-artist">Artist</label>
+                </div>
+                <div class="input-field">
+                    <input id="edit-duration" type="text" required>
+                    <label for="edit-duration">Duration</label>
+                </div>
+                <div class="input-field">
+                    <input id="edit-size" type="text" required>
+                    <label for="edit-size">Size</label>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close btn-flat">Cancel</a>
+            <a href="#!" id="save-edit" class="btn sea-blue">Save Changes</a>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content">
+            <h4>Confirm Action</h4>
+            <p id="confirm-message">Are you sure you want to perform this action?</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close btn-flat">Cancel</a>
+            <a href="#!" id="confirm-action" class="btn sea-blue">Confirm</a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/admin.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

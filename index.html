@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revumaukpai - Music & Video Downloads</title>
+    <!-- Materialize CSS -->
+    <link href="styles/materialize.min.css" rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="styles/font/micons" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-wrapper sea-blue">
+        <div class="container">
+            <a href="#" class="brand-logo">Revumaukpai.com</a>
+            <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#songs">Songs</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="#songs">Songs</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+
+    <!-- Hero Section -->
+    <section class="hero valign-wrapper">
+        <div class="container center-align">
+            <h1 class="white-text">Download Your Favorite Music & Videos</h1>
+            <p class="flow-text white-text">High-quality MP3 songs and videos at your fingertips</p>
+            <a href="#songs" class="btn-large waves-effect waves-light sea-blue lighten-1">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Songs Section -->
+    <section id="songs" class="section white">
+        <div class="container">
+            <h2 class="center-align sea-blue-text">Download Songs</h2>
+            <p class="center-align">Select from our collection of popular songs</p>
+            
+            <!-- Search Bar -->
+            <div class="row">
+                <div class="col s12 m8 offset-m2">
+                    <div class="input-field">
+                        <i class="material-icons prefix">search</i>
+                        <input type="text" id="song-search" placeholder="Search songs...">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Songs Grid -->
+            <div class="row" id="songs-container">
+                <!-- Songs will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos" class="section sea-blue lighten-5">
+        <div class="container">
+            <h2 class="center-align sea-blue-text">Download Videos</h2>
+            <p class="center-align">Browse our collection of trending videos</p>
+            
+            <!-- Search Bar -->
+            <div class="row">
+                <div class="col s12 m8 offset-m2">
+                    <div class="input-field">
+                        <i class="material-icons prefix">search</i>
+                        <input type="text" id="video-search" placeholder="Search videos...">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Videos Grid -->
+            <div class="row" id="videos-container">
+                <!-- Videos will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section white">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m8 offset-m2 center-align">
+                    <h2 class="sea-blue-text">About Revumaukpai</h2>
+                    <p class="flow-text">We provide a platform for music and video enthusiasts to discover and download their favorite content. Our collection is regularly updated with the latest hits and trending videos.</p>
+                    <p>All content is provided for personal use only.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer sea-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6">
+                    <h5 class="white-text">Revumaukpai.com</h5>
+                    <p class="grey-text text-lighten-4">Your destination for music and video downloads.</p>
+                </div>
+                <div class="col s12 m4 offset-m2">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#songs">Songs</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#videos">Videos</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#about">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright sea-blue darken-1">
+            <div class="container">
+                © 2023 Revumaukpai.com
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="scripts/jquery"></script>
+    <!-- Materialize JS -->
+    <script src="scripts/materialize.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts/script.js"></script>
+</body>
+</html>
