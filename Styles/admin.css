@@ -1,0 +1,157 @@
+
+/* Sea Blue Theme Colors */
+:root {
+    --sea-blue: #1e88e5;
+    --sea-blue-light: #64b5f6;
+    --sea-blue-dark: #0d47a1;
+}
+
+.sea-blue {
+    background-color: var(--sea-blue) !important;
+}
+
+.sea-blue-text {
+    color: var(--sea-blue) !important;
+}
+
+.sea-blue.lighten-1 {
+    background-color: var(--sea-blue-light) !important;
+}
+
+.sea-blue.darken-1 {
+    background-color: var(--sea-blue-dark) !important;
+}
+
+/* Admin Specific Styles */
+.sidebar {
+    position: sticky;
+    top: 20px;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.collection .collection-item.active {
+    background-color: var(--sea-blue);
+}
+
+.quick-actions .btn {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Table Styles */
+table {
+    margin-top: 20px;
+}
+
+table th {
+    font-weight: 600;
+}
+
+/* Form Styles */
+.file-field .btn {
+    margin-top: 10px;
+}
+
+.input-field input:focus, 
+.input-field textarea:focus {
+    border-bottom: 1px solid var(--sea-blue) !important;
+    box-shadow: 0 1px 0 0 var(--sea-blue) !important;
+}
+
+.input-field input:focus + label,
+.input-field textarea:focus + label {
+    color: var(--sea-blue) !important;
+}
+
+/* Card Panel Styles */
+.card-panel {
+    border-radius: 8px;
+}
+
+/* Announcement Styles */
+.announcement {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border-left: 4px solid;
+}
+
+.announcement.info {
+    background-color: #e3f2fd;
+    border-left-color: var(--sea-blue);
+}
+
+.announcement.warning {
+    background-color: #fff3e0;
+    border-left-color: #ff9800;
+}
+
+.announcement.success {
+    background-color: #e8f5e9;
+    border-left-color: #4caf50;
+}
+
+.announcement.maintenance {
+    background-color: #fce4ec;
+    border-left-color: #e91e63;
+}
+
+/* Stats Cards */
+.card-panel.center-align i.material-icons {
+    margin-bottom: 10px;
+}
+
+.card-panel.center-align h5 {
+    margin: 10px 0;
+    font-size: 2rem;
+}
+
+/* Action Buttons */
+.action-btn {
+    margin: 0 5px;
+    padding: 0 10px;
+}
+
+.btn-small {
+    height: 24px;
+    line-height: 24px;
+    padding: 0 10px;
+}
+
+/* Search Inputs */
+input[type="text"]:not(.browser-default) {
+    padding: 0 10px;
+    margin: 10px 0;
+}
+
+/* Modal Styles */
+.modal .modal-footer .btn {
+    margin-left: 10px;
+}
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 992px) {
+    .sidebar {
+        position: relative;
+        top: 0;
+    }
+    
+    .quick-actions .btn {
+        margin-bottom: 5px;
+    }
+}
+
+/* Chart Container */
+canvas {
+    width: 100% !important;
+}
+
+
+

@@ -1,0 +1,96 @@
+
+
+/* Sea Blue Theme Colors */
+:root {
+    --sea-blue: #1e88e5;
+    --sea-blue-light: #64b5f6;
+    --sea-blue-dark: #0d47a1;
+}
+
+.sea-blue {
+    background-color: var(--sea-blue) !important;
+}
+
+.sea-blue-text {
+    color: var(--sea-blue) !important;
+}
+
+.sea-blue.lighten-1 {
+    background-color: var(--sea-blue-light) !important;
+}
+
+.sea-blue.darken-1 {
+    background-color: var(--sea-blue-dark) !important;
+}
+
+.sea-blue.lighten-5 {
+    background-color: rgba(30, 136, 229, 0.05);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('https://source.unsplash.com/1600x900/?music,concert') center/cover no-repeat;
+    height: 70vh;
+    margin-top: -64px; /* Offset for fixed navbar */
+    padding-top: 64px;
+}
+
+/* Card Styles */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card .card-image img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card .card-content {
+    padding: 15px;
+}
+
+.card .card-action {
+    padding: 10px 15px;
+}
+
+/* Download Button */
+.download-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Search Input */
+.input-field input[type=text]:focus + label {
+    color: var(--sea-blue) !important;
+}
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid var(--sea-blue) !important;
+    box-shadow: 0 1px 0 0 var(--sea-blue) !important;
+}
+
+/* Section Spacing */
+.section {
+    padding: 4rem 0;
+}
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 600px) {
+    .hero {
+        height: 50vh;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .section {
+        padding: 2rem 0;
+    }
+}
